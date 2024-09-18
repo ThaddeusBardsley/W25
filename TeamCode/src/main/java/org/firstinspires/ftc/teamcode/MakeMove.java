@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 
-@TeleOp(name="TeleOpTemplate", group="Iterative Opmode")
+@TeleOp(name="MakeMove", group="Iterative Opmode")
 
 public class MakeMove extends OpMode
 {
@@ -21,7 +21,7 @@ public class MakeMove extends OpMode
     /*
      * Code to run ONCE when the driver hits INIT
      */
-    @Override
+
     public void init() {
         telemetry.addData("Status", "init");
 
@@ -33,7 +33,7 @@ public class MakeMove extends OpMode
     /*
      * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
      */
-    @Override
+
     public void init_loop() {
         telemetry.addData("Status", "init_loop");
 
@@ -43,7 +43,7 @@ public class MakeMove extends OpMode
     /*
      * Code to run ONCE when the driver hits PLAY
      */
-    @Override
+
     public void start() {
         telemetry.addData("Status", "start");
 
@@ -52,7 +52,7 @@ public class MakeMove extends OpMode
     /*
      * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
      */
-    @Override
+
     public void loop() {
         telemetry.addData("Status", "loop");
 
@@ -62,7 +62,7 @@ public class MakeMove extends OpMode
     /*
      * Code to run ONCE after the driver hits STOP
      */
-    @Override
+
     public void stop() {
         telemetry.addData("Status", "Flatlined");
 

@@ -41,19 +41,19 @@ public class Drivetrain {
         br.setPower((YPower - XPower - HeadingPower) * Speed);
 
     }
-
-    public void reverse (double YPower, double XPower, double HeadingPower, double Speed){
-
-        //
-        fl.setPower((YPower + XPower - HeadingPower) * Speed);
-        //
-        fr.setPower(-(YPower - XPower + HeadingPower) * Speed);
-        //
-        bl.setPower((YPower - XPower - HeadingPower) * Speed);
-        //backwards
-        br.setPower(-(YPower + XPower + HeadingPower) * Speed);
-
-    }
+//
+//    public void reverse (double YPower, double XPower, double HeadingPower, double Speed){
+//
+//        //
+//        fl.setPower((YPower + XPower - HeadingPower) * Speed);
+//        //
+//        fr.setPower(-(YPower - XPower + HeadingPower) * Speed);
+//        //
+//        bl.setPower((YPower - XPower - HeadingPower) * Speed);
+//        //backwards
+//        br.setPower(-(YPower + XPower + HeadingPower) * Speed);
+//
+//    }
 
 
 //    public void autoDrive(double distance, double YPower, double XPower, double Speed, double HeadingPower){
