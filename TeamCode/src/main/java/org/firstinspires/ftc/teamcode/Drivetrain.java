@@ -8,6 +8,7 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.har
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class Drivetrain {
@@ -16,7 +17,7 @@ public class Drivetrain {
     DcMotor bl;
     DcMotor br;
 
-    public Drivetrain () {
+    public Drivetrain (HardwareMap hardwareMap) {
 
         fl = hardwareMap.get(DcMotor.class, "fl");
         fr = hardwareMap.get(DcMotor.class, "fr");
@@ -26,25 +27,25 @@ public class Drivetrain {
     }
 
 
-//    public void drive (double YPower, double XPower, double HeadingPower, double Speed){
-//
-//        //
-//        fl.setPower(-(YPower - XPower + HeadingPower) * Speed);
-//        //
-//        fr.setPower((YPower + XPower - HeadingPower) * Speed);
-//        //
-//        bl.setPower(-(YPower + XPower + HeadingPower) * Speed);
-//        //backwards
-//        br.setPower((YPower - XPower - HeadingPower) * Speed);
-//
-//    }
+    public void drive (double YPower, double XPower, double HeadingPower, double Speed){
 
-    public void testDrive (double speed) {
-        fr.setPower(-speed);
-        fl.setPower(speed);
-        br.setPower(-speed);
-        bl.setPower(speed);
+        //
+        fl.setPower(-(YPower - XPower + HeadingPower) * Speed);
+        //
+        fr.setPower((YPower + XPower - HeadingPower) * Speed);
+        //
+        bl.setPower(-(YPower + XPower + HeadingPower) * Speed);
+        //backwards
+        br.setPower((YPower - XPower - HeadingPower) * Speed);
+
     }
+
+//    public void testDrive (double speed) {
+//        fr.setPower(speed);
+//        fl.setPower(-speed);
+//        br.setPower(speed);
+//        bl.setPower(-speed);
+//    }
 
 
 

@@ -3,6 +3,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -16,7 +17,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class MakeMove extends OpMode
 {
     // Declare OpMode members.
-    public Drivetrain drivetrain = null;
+    private Drivetrain drivetrain;
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -26,7 +27,7 @@ public class MakeMove extends OpMode
 
         telemetry.addData("Status", "init");
 
-        drivetrain = new Drivetrain();
+        drivetrain = new Drivetrain(hardwareMap);
 
 
     }
@@ -57,8 +58,8 @@ public class MakeMove extends OpMode
     public void loop() {
         telemetry.addData("Status", "loop");
 
-        //drivetrain.drive(gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x, gamepad1.right_trigger);
-        drivetrain.testDrive(gamepad1.left_stick_y);
+        drivetrain.drive(gamepad1.left_stick_y, gamepad1.left_stick_x, -gamepad1.right_stick_x, 0.5);
+        //drivetrain.testDrive(gamepad1.left_stick_y);
 
     }
 
