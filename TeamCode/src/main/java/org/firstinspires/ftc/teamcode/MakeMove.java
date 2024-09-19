@@ -16,13 +16,14 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class MakeMove extends OpMode
 {
     // Declare OpMode members.
-    public Drivetrain drivetrain;
+    public Drivetrain drivetrain = null;
 
     /*
      * Code to run ONCE when the driver hits INIT
      */
 
     public void init() {
+
         telemetry.addData("Status", "init");
 
         drivetrain = new Drivetrain();
@@ -56,7 +57,8 @@ public class MakeMove extends OpMode
     public void loop() {
         telemetry.addData("Status", "loop");
 
-        drivetrain.drive(gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x, gamepad1.right_trigger);
+        //drivetrain.drive(gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x, gamepad1.right_trigger);
+        drivetrain.testDrive(gamepad1.left_stick_y);
 
     }
 
