@@ -54,7 +54,7 @@ public class BasicMovement extends OpMode
     public void loop() {
         telemetry.addData("Status", "loop");
 
-        //drivetrain.drive(gamepad1.left_stick_y, gamepad1.left_stick_x, -gamepad1.right_stick_x, gamepad1.right_trigger);
+        drivetrain.Drive(gamepad1.left_stick_y, gamepad1.left_stick_x, -gamepad1.right_stick_x, gamepad1.right_trigger);
         //drivetrain.testDrive(gamepad1.left_stick_y);
 
     }
@@ -65,7 +65,6 @@ public class BasicMovement extends OpMode
 
     public void stop() {
         telemetry.addData("Status", "Flatlined");
-
     }
 
 }

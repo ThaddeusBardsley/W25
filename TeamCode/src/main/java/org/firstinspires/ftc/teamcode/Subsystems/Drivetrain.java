@@ -40,8 +40,8 @@ public class Drivetrain {
         bl = hardwareMap.get(DcMotor.class, "bl");
         br = hardwareMap.get(DcMotor.class, "br");
 
-        fr.setDirection(DcMotorSimple.Direction.REVERSE);
-        br.setDirection(DcMotorSimple.Direction.REVERSE);
+//        fr.setDirection(DcMotorSimple.Direction.REVERSE);
+//        br.setDirection(DcMotorSimple.Direction.REVERSE);
 
         fr.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         fl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -86,6 +86,9 @@ public class Drivetrain {
 
     public void Drive (double YPower, double XPower, double HeadingPower,  double Slow){
 
+        if (YPower <0.1) {
+            YPower = 0;
+        } else {
         if (Slow > 0.05) {
             //
             fl.setPower(-(YPower - XPower + HeadingPower) * 0.5);
@@ -104,6 +107,9 @@ public class Drivetrain {
             bl.setPower(-(YPower + XPower + HeadingPower) * 1);
             //backwards
             br.setPower((YPower - XPower - HeadingPower) * 1);
+        }
+
+
         }
 
         double YVector = YPower;
