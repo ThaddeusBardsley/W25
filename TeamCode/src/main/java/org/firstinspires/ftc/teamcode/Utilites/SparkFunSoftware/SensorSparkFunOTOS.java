@@ -4,7 +4,7 @@
 
     Copyright (c) 2024 SparkFun Electronics
 */
-package org.firstinspires.ftc.teamcode.Utilites;
+package org.firstinspires.ftc.teamcode.Utilites.SparkFunSoftware;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
