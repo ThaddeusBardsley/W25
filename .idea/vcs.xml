@@ -2,6 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SparkFun_Optical_Tracking_Odometry_Sensor" vcs="Git" />
   </component>
 </project>
