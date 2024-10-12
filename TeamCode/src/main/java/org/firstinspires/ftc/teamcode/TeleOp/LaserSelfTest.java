@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
 
-//import static org.firstinspires.ftc.teamcode.Utilities.OpModeUtils.multTelemetry;
-//import static org.firstinspires.ftc.teamcode.Utilities.OpModeUtils.setOpMode;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -12,9 +10,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Sensors.SparkFunOTOS;
 
-@TeleOp(name = "Localization Test")
+@TeleOp
 
-public class LocalizationTest extends OpMode {
+public class LaserSelfTest extends OpMode {
 
 
     SparkFunOTOS myOtos;
@@ -27,8 +25,6 @@ public class LocalizationTest extends OpMode {
 
 
     public void init() {
-        //setOpMode(this);
-        //could need this, we'll see
 
         myOtos = hardwareMap.get(SparkFunOTOS.class, "sensor_otos");
         myOtos.setLinearUnit(DistanceUnit.INCH);
@@ -41,29 +37,25 @@ public class LocalizationTest extends OpMode {
         myOtos.resetTracking();
         SparkFunOTOS.Pose2D currentPosition = new SparkFunOTOS.Pose2D(0, 0, Math.PI / 2);
         myOtos.setPosition(currentPosition);
-//        myOtos.getPosition().y = 0;
-//        myOtos.getPosition().x = 0;
-//        myOtos.getPosition().h = 0;
-
 
     }
-    public void loop(){
+
+    public void loop() {
+
+        myOtos.selfTest();
+
         x = myOtos.getPosition().x;
         y = myOtos.getPosition().y;
         h = myOtos.getPosition().h;
-
-        telemetry.addData("x", x);
-        telemetry.addData("y", y);
-        telemetry.addData("heading", h);
-
-        telemetry.addLine("running code....");
 
         dashboardTelemetry.addData("x = ", x);
         dashboardTelemetry.addData("y = ", y);
         dashboardTelemetry.addData("heading = ", h);
         dashboardTelemetry.update();
 
-        telemetry.update();
+
+
     }
+
 
 }
