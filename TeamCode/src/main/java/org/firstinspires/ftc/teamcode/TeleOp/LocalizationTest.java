@@ -49,6 +49,7 @@ public class LocalizationTest extends OpMode {
         telemetry.addData("x", x);
         telemetry.addData("y", y);
         telemetry.addData("heading", h);
+        telemetry.addLine("running code....");
     }
 
 }
