@@ -17,10 +17,16 @@ public class OOPS extends OpMode {
     double y;
     double h;
 
-    int[] obstaclesy = { 5,-5 };
-    int[] obstaclesx = {1,1};
+    int[] obstaclesy = { 5 };
+    int[] obstaclesx = { 1 };
 
     double c = 0.001;
+
+
+    double oopsYOutput;
+    double oopsXOutput;
+
+    int factor = 1;
 
 
     FtcDashboard dashboard = FtcDashboard.getInstance();
@@ -59,14 +65,23 @@ public class OOPS extends OpMode {
         //begin OOPS
 
 
-        for (int i = 0; i < obstaclesy.length; i++) {
-            double yDis = (y -= obstaclesy[i]);
-            double xDis = (x -= obstaclesx[i]);
+        oopsYOutput = 0;
+        oopsXOutput = 0;
 
-            dashboardTelemetry.addData("OOPSY",yDis / (Math.sqrt((yDis * yDis) + (xDis * xDis)) * ((c / (xDis * xDis) + (yDis * yDis))*-1)));
-            dashboardTelemetry.addData("OOPSX",xDis / (Math.sqrt((yDis * yDis) + (xDis * xDis)) * ((c / (xDis * xDis) + (yDis * yDis))*-1)));
+        for (int i = 0; i < obstaclesy.length; i++) {
+            double yDis = (y - obstaclesy[i]);
+            double xDis = (x - obstaclesx[i]);
+
+            oopsYOutput = oopsYOutput + yDis / (Math.sqrt((yDis * yDis) + (xDis * xDis)) * ((c / (xDis * xDis) + (yDis * yDis)) * factor));
+            oopsXOutput = oopsXOutput + xDis / (Math.sqrt((yDis * yDis) + (xDis * xDis)) * ((c / (xDis * xDis) + (yDis * yDis)) * factor));
+
+
+            //dashboardTelemetry.addData("OOPSX",xDis / (Math.sqrt((yDis * yDis) + (xDis * xDis)) * ((c / (xDis * xDis) + (yDis * yDis))*-1)));
+
         }
 
+        dashboardTelemetry.addData("OOPSY", oopsYOutput);
+        dashboardTelemetry.addData("OOPSX", oopsXOutput);
 
         x = myOtos.getPosition().x;
         y = myOtos.getPosition().y;
