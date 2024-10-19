@@ -17,14 +17,10 @@ public class OOPS extends OpMode {
     double y;
     double h;
 
-    int[][] obstacles = {
-            {1, 2},
-            {3, 4},
-            {5, 6},
-            {7, 8}
-    };
+    int[] obstaclesy = { 5,-5 };
+    int[] obstaclesx = {1,1};
 
-    int c = 1;
+    double c = 0.001;
 
 
     FtcDashboard dashboard = FtcDashboard.getInstance();
@@ -40,10 +36,14 @@ public class OOPS extends OpMode {
         myOtos = hardwareMap.get(SparkFunOTOS.class, "sensor_otos");
         myOtos.setLinearUnit(DistanceUnit.INCH);
         myOtos.setAngularUnit(AngleUnit.DEGREES);
-        SparkFunOTOS.Pose2D offset = new SparkFunOTOS.Pose2D(-3.5, 5, 0);
+
+        //SparkFunOTOS.Pose2D offset = new SparkFunOTOS.Pose2D(-3.5, 5, 0);
+        SparkFunOTOS.Pose2D offset = new SparkFunOTOS.Pose2D(0, 0, 0);
         myOtos.setOffset(offset);
+
         myOtos.setLinearScalar(1.01951);
         myOtos.setAngularScalar(1.00763666667);
+
         myOtos.calibrateImu();
         myOtos.resetTracking();
         SparkFunOTOS.Pose2D currentPosition = new SparkFunOTOS.Pose2D(0, 0, Math.PI / 2);
@@ -59,11 +59,13 @@ public class OOPS extends OpMode {
         //begin OOPS
 
 
-        for (int i = 0; i < obstacles.length; i++) {
-            double yDis = (y -= obstacles[i][1]);
-            double xDis = (x -= obstacles[i][1]);
+        for (int i = 0; i < obstaclesy.length; i++) {
+            double yDis = (y -= obstaclesy[i]);
+            double xDis = (x -= obstaclesx[i]);
 
-            System.out.println(yDis / (Math.sqrt( (yDis * yDis) + (xDis * xDis))* (c / (xDis * xDis) + (yDis * yDis)))); }
+            dashboardTelemetry.addData("OOPSY",yDis / (Math.sqrt((yDis * yDis) + (xDis * xDis)) * ((c / (xDis * xDis) + (yDis * yDis))*-1)));
+            dashboardTelemetry.addData("OOPSX",xDis / (Math.sqrt((yDis * yDis) + (xDis * xDis)) * ((c / (xDis * xDis) + (yDis * yDis))*-1)));
+        }
 
 
         x = myOtos.getPosition().x;
