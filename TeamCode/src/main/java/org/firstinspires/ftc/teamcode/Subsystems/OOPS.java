@@ -1,15 +1,14 @@
-package org.firstinspires.ftc.teamcode.TeleOp;
+package org.firstinspires.ftc.teamcode.Subsystems;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Sensors.SparkFunOTOS;
 
-@TeleOp
+
 public class OOPS extends OpMode {
 
     SparkFunOTOS myOtos;
@@ -17,8 +16,10 @@ public class OOPS extends OpMode {
     double y;
     double h;
 
-    int[] obstaclesy = { 5 };
-    int[] obstaclesx = { 1 };
+    int[] obstaclesy = { 3 };
+    //5
+    int[] obstaclesx = { 3 };
+    //1
 
     double c = 0.001;
 
