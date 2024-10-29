@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
 
 import com.acmerobotics.dashboard.FtcDashboard;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -8,9 +9,23 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Sensors.SparkFunOTOS;
+import org.firstinspires.ftc.teamcode.Subsystems.Drivetrain;
+import org.firstinspires.ftc.teamcode.Subsystems.OOPS;
 
-@TeleOp
-public class OOPSTest extends OpMode {
+//this chunk of code establishes that it is a OpMode, and creates the neccecary parameters for it.
+//it also creates the name and group for the code
+
+@TeleOp(name = "TeleOpBlank", group = "Iterative Opmode")
+
+
+//disables this specific program so it dosnt show up on the android
+//when using this template, delete this
+
+public class DriveWithOOPS extends OpMode {
+
+    //set up variables here and call subsystems
+
+    private Drivetrain drivetrain;
 
     SparkFunOTOS myOtos;
     double x;
@@ -34,12 +49,14 @@ public class OOPSTest extends OpMode {
     FtcDashboard dashboard = FtcDashboard.getInstance();
     Telemetry dashboardTelemetry = dashboard.getTelemetry();
 
+
     public void init() {
 
-        //in terms of inches
+        //this code runs when you press the init button
+        //code like localaziation (origin, x, y, z) goes here
 
-        //setOpMode(this);
-        //could need this, we'll see
+        drivetrain = new Drivetrain(hardwareMap);
+
 
         myOtos = hardwareMap.get(SparkFunOTOS.class, "sensor_otos");
         myOtos.setLinearUnit(DistanceUnit.INCH);
@@ -62,10 +79,29 @@ public class OOPSTest extends OpMode {
 
     }
 
+    public void init_loop() {
+
+        //code to loop while in the init stage
+
+    }
+
+    public void start() {
+
+        //this code runs when you go from the init stage to the run stage
+
+    }
+
     public void loop() {
 
-        //begin OOPS
+        double trueForwards = (gamepad1.left_stick_y - oopsYOutput);
+        double trueStrafe = (gamepad1.left_stick_x - oopsXOutput);
 
+        //the majority of you code will go in here.
+        //anything like drive code will be here
+        //this section takes a piece of code and repeatedly calls it.
+
+        //drivetrain.Drive(gamepad1.left_stick_y, gamepad1.left_stick_x, -gamepad1.right_stick_x, gamepad1.right_trigger);
+        drivetrain.Drive(trueForwards, trueStrafe, -gamepad1.right_stick_x, gamepad1.right_trigger);
 
         oopsYOutput = 0;
         oopsXOutput = 0;
@@ -101,7 +137,14 @@ public class OOPSTest extends OpMode {
         dashboardTelemetry.update();
 
         telemetry.update();
+    }
+
+    public void stop() {
+
+        //code to run when you stop the program
 
     }
+
+
 
 }

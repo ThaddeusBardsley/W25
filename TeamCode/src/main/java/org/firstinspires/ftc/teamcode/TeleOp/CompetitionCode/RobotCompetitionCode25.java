@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.TeleOp;
+package org.firstinspires.ftc.teamcode.TeleOp.CompetitionCode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 //disables this specific program so it dosnt show up on the android
 //when using this template, delete this
 
-public class TeleOpBlank extends OpMode {
+public class RobotCompetitionCode25 extends OpMode {
 
     //set up variables here and call subsystems
 
