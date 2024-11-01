@@ -17,16 +17,16 @@ public class OOPSTest extends OpMode {
     double y;
     double h;
 
-<<<<<<< HEAD
-    int[] obstaclesy = { 3, 5 };
-    //5
-    int[] obstaclesx = { 3, 1 };
-=======
+//<<<<<<< HEAD
+//    int[] obstaclesy = { 3, 5 };
+//    //5
+//    int[] obstaclesx = { 3, 1 };
+//=======
     int[] obstaclesY = { 15 };
     //5
     int[] obstaclesX = { 1 };
->>>>>>> f26396e25c7289b0d382d7a0091c7f8d99801219
-    //1
+//>>>>>>> f26396e25c7289b0d382d7a0091c7f8d99801219
+//    //1
 
     double c = 0.001;
 
