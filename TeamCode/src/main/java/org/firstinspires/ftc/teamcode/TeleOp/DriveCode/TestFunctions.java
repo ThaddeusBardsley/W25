@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.Subsystems.Slides;
+
 //this chunk of code establishes that it is a OpMode, and creates the neccecary parameters for it.
 //it also creates the name and group for the code
 
@@ -17,7 +19,11 @@ public class TestFunctions extends OpMode {
 
     //set up variables here and call subsystems
 
+    private Slides slides;
+
     public void init() {
+
+        slides = new Slides();
 
         //this code runs when you press the init button
         //code like localaziation (origin, x, y, z) goes here
@@ -37,6 +43,8 @@ public class TestFunctions extends OpMode {
     }
 
     public void loop() {
+
+        slides.extend(gamepad1.left_trigger);
 
         //the majority of you code will go in here.
         //anything like drive code will be here

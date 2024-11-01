@@ -17,9 +17,9 @@ public class OOPSTest extends OpMode {
     double y;
     double h;
 
-    int[] obstaclesy = { 3 };
+    int[] obstaclesy = { 3, 5 };
     //5
-    int[] obstaclesx = { 3 };
+    int[] obstaclesx = { 3, 1 };
     //1
 
     double c = 0.001;
