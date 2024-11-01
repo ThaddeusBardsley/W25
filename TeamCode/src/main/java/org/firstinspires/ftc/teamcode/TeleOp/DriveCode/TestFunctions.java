@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.Subsystems.IntakeSystem;
+
 //this chunk of code establishes that it is a OpMode, and creates the neccecary parameters for it.
 //it also creates the name and group for the code
 
@@ -14,10 +16,13 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 //when using this template, delete this
 
 public class TestFunctions extends OpMode {
+    private IntakeSystem intake;
 
     //set up variables here and call subsystems
 
     public void init() {
+
+        intake = new IntakeSystem();
 
         //this code runs when you press the init button
         //code like localaziation (origin, x, y, z) goes here
@@ -37,6 +42,8 @@ public class TestFunctions extends OpMode {
     }
 
     public void loop() {
+
+        intake.spin(gamepad1.right_trigger);
 
         //the majority of you code will go in here.
         //anything like drive code will be here
