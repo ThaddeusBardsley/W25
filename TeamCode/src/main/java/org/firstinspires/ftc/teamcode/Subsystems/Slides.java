@@ -14,4 +14,10 @@ public class Slides {
         SLidesRight = hardwareMap.get(DcMotor.class, "SlidesRight");
     }
 
+    public void extend(double powerInput) {
+
+        SlidesLeft.setPower(powerInput);
+        SLidesRight.setPower(powerInput);
+    }
+
 }
